@@ -1,6 +1,7 @@
 import { CompileAndRunJava } from "./compiler/java-compiler"
 import { Editor } from "@monaco-editor/react"
 import { useState } from "react"
+import { DEFAULT_JAVA_CODE } from "./defaults"
 
 function App() {
 	const [code, setCode] = useState("")
@@ -14,7 +15,7 @@ function App() {
 				width="50%"
 				theme="vs-dark"
 				defaultLanguage="java"		
-				defaultValue="// some comment..."
+				defaultValue={DEFAULT_JAVA_CODE}
 				onChange={(value) => setCode(value)}
 			/>
 
@@ -39,7 +40,7 @@ function App() {
 
 			<button 
 				className="bg-black px-5 py-4 text-white rounded-md cursor-pointer mr-1 font-mono"
-				onClick={() => CompileAndRunJava("Brad", code, userInput)}
+				onClick={() => CompileAndRunJava("Main", code, userInput)}
 			>build&&run</button>
 		</div>
 
